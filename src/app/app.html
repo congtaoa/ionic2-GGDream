@@ -1,0 +1,24 @@
+<ion-menu id="filterMenu" #filterMenu [content]="nav" side="right" type="push" enabled="false">
+  <!--<ion-header>-->
+    <!--<ion-navbar>-->
+      <!--<div style="margin-left: 8px; text-align: center; font-size: 1.7rem;">个人</div>-->
+    <!--</ion-navbar>-->
+  <!--</ion-header>-->
+
+  <ion-content>
+    <ion-item >
+      <div id="my_head_image_picker">
+        <img id="my_head_image" src="assets/images/Avatar@2x.png" class="my-message-head-image">
+      </div>
+    </ion-item>
+    <ion-list>
+      <button ion-item (click)="openPage(loginPage)">
+        Login
+      </button>
+      <button ion-item (click)="openPage(signupPage)">
+        Signup
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #nav [root]="rootPage"></ion-nav>

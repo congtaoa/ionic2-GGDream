@@ -1,0 +1,531 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>光谷梦想</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <img style="width:25px" src="assets/images/Avatar@2x.png">
+      </button>
+      <button ion-button icon-only (click)="showFilter()" tappable>
+        <img style="width:25px" src="assets/images/ico_content@2x.png">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--第一部分-->
+  <div>
+    <ion-slides #slider pager="true"
+                loop="true"
+                autoplay="3000">
+      <ion-slide>
+        <!--<img src="http://files.ovdream.com/1453095464864.jpg">-->
+        <ion-thumbnail class="top"
+                       [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/1453095464864.jpg' + ')'}">
+        </ion-thumbnail>
+      </ion-slide>
+      <ion-slide>
+        <!--<img src="assets/images/banner@2x.png">-->
+        <ion-thumbnail class="top"
+                       [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/1453095464864.jpg' + ')'}">
+        </ion-thumbnail>
+      </ion-slide>
+      <ion-slide>
+        <!--<img src="assets/images/banner@2x.png">-->
+        <ion-thumbnail class="top"
+                       [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/1453095464864.jpg' + ')'}">
+        </ion-thumbnail>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="flex-six-content">
+    <div class="flex-six">
+      <img src="assets/images/ico-local-product@2x.png">
+      <p>资讯</p>
+    </div>
+    <div class="flex-six">
+      <img src="assets/images/ico-local-product@2x.png">
+      <p>众创服务</p>
+    </div>
+    <div class="flex-six">
+      <img src="assets/images/ico-local-product@2x.png">
+      <p>梦想空间</p>
+    </div>
+    <div class="flex-six">
+      <img src="assets/images/ico-local-product@2x.png">
+      <p>找项目</p>
+    </div>
+    <div class="flex-six">
+      <img src="assets/images/ico-local-product@2x.png">
+      <p>找资金</p>
+    </div>
+  </div>
+
+  <div style="background:#f1f1f1 ;height: 13px"></div>
+
+  <!--第二部分-->
+  <div style="height: 35px; line-height: 35px; margin: 0 5px">
+    <img style="vertical-align: middle" src="assets/images/praise@2x.png">
+    <span style="color: gold; vertical-align: middle; font-size: 1.6rem">今日头条</span>
+  </div>
+  <div style="position: relative">
+    <ion-slides #slider pager="true"
+                loop="true">
+      <ion-slide>
+        <div>
+          <ion-card *ngFor="let item of hotListOne">
+            <ion-row>
+              <ion-col width-33>
+                <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+                </ion-thumbnail>
+              </ion-col>
+
+              <ion-col width-67 style="position: relative">
+                <h2 style="text-align: left">{{item.title}}</h2>
+                <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                  <div style="float: left; vertical-align: middle;">
+                    <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                    </ion-thumbnail>
+                    <span style="color:#0c60ee">{{item.person}}</span>
+                  </div>
+                  <div style="float: right; vertical-align: middle; color: #999;">
+                    {{item.date}}
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <div class="morehotseize">
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <ion-card *ngFor="let item of hotListTwo">
+            <ion-row>
+              <ion-col width-33>
+                <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+                </ion-thumbnail>
+              </ion-col>
+
+              <ion-col width-67 style="position: relative">
+                <h2 style="text-align: left">{{item.title}}</h2>
+                <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                  <div style="float: left; vertical-align: middle">
+                    <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                    </ion-thumbnail>
+                    <!--<img src={{item.icon}} class="usericon">-->
+                    <span style="color:#0c60ee">{{item.person}}</span>
+                  </div>
+                  <div style="float: right; vertical-align: middle; color: #999;">
+                    {{item.date}}
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <div class="morehotseize">
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <ion-card *ngFor="let item of hotListThree">
+            <ion-row>
+              <ion-col width-33>
+                <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+                </ion-thumbnail>
+              </ion-col>
+
+              <ion-col width-67 style="position: relative">
+                <h2 style="text-align: left">{{item.title}}</h2>
+                <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                  <div style="float: left; vertical-align: middle">
+                    <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                    </ion-thumbnail>
+                    <span style="color:#0c60ee">{{item.person}}</span>
+                  </div>
+                  <div style="float: right; vertical-align: middle; color: #999;">
+                    {{item.date}}
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <div class="morehotseize">
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <div class="morehot">
+      <span style="color:#777777">更多 >></span>
+    </div>
+  </div>
+
+  <div style="background:#f1f1f1 ;height: 13px"></div>
+
+  <!--第三部分-->
+  <div class="servethree">
+    <ion-thumbnail class="threePic"
+                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/1453095464864.jpg'+ ')'}">
+    </ion-thumbnail>
+
+    <ion-segment [(ngModel)]="mySeg">
+      <ion-segment-button value="info">
+        服务套餐
+      </ion-segment-button>
+      <ion-segment-button value="recom">
+        创业辅导
+      </ion-segment-button>
+      <ion-segment-button value="serve">
+        起航服务
+      </ion-segment-button>
+      <ion-segment-button value="develop">
+        产品研发
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="mySeg">
+      <div *ngSwitchCase="'info'" class="mselect-info">
+        <ion-card *ngFor="let item of serveListOne">
+          <ion-row>
+            <ion-col width-33>
+              <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+              </ion-thumbnail>
+            </ion-col>
+
+            <ion-col width-67 style="position: relative">
+              <h2 style="text-align: left">{{item.title}}</h2>
+              <p style="color: rgba(34, 34, 34, 0.79);">
+                {{item.des}}
+              </p>
+              <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                <div style="float: left; vertical-align: middle;color: orangered">
+                  {{item.price}}
+                </div>
+                <div style="float: right; vertical-align: middle">
+                  {{item.number}}
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+
+      <div *ngSwitchCase="'recom'" class="mselect-recom">
+        <ion-card *ngFor="let item of serveListTwo">
+          <ion-row>
+            <ion-col width-33>
+              <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+              </ion-thumbnail>
+            </ion-col>
+
+            <ion-col width-67 style="position: relative">
+              <h2 style="text-align: left">{{item.title}}</h2>
+              <p style="color: rgba(34, 34, 34, 0.79);">
+                {{item.des}}
+              </p>
+              <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                <div style="float: left; vertical-align: middle;color: orangered">
+                  {{item.price}}
+                </div>
+                <div style="float: right; vertical-align: middle">
+                  {{item.number}}
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+      <div *ngSwitchCase="'serve'" class="mselect-serve">
+        <ion-card *ngFor="let item of serveListThree">
+          <ion-row>
+            <ion-col width-33>
+              <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+              </ion-thumbnail>
+            </ion-col>
+
+            <ion-col width-67 style="position: relative">
+              <h2 style="text-align: left">{{item.title}}</h2>
+              <p style="color: rgba(34, 34, 34, 0.79);">
+                {{item.des}}
+              </p>
+              <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                <div style="float: left; vertical-align: middle;color: orangered">
+                  {{item.price}}
+                </div>
+                <div style="float: right; vertical-align: middle">
+                  {{item.number}}
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+
+      <div *ngSwitchCase="'develop'" class="mselect-develop">
+        <ion-card *ngFor="let item of serveListFour">
+          <ion-row>
+            <ion-col width-33>
+              <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+              </ion-thumbnail>
+            </ion-col>
+
+            <ion-col width-67 style="position: relative">
+              <h2 style="text-align: left">{{item.title}}</h2>
+              <p style="color: rgba(34, 34, 34, 0.79);">
+                {{item.des}}
+              </p>
+              <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+                <div style="float: left; vertical-align: middle;color: orangered">
+                  {{item.price}}
+                </div>
+                <div style="float: right; vertical-align: middle">
+                  {{item.number}}
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#f1f1f1 ;height: 13px"></div>
+  <!--第四部分-->
+  <div>
+    <ion-segment [(ngModel)]="mySegFour">
+      <ion-segment-button value="activity">
+        最新活动
+      </ion-segment-button>
+      <ion-segment-button value="photo">
+        最新图解
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="mySegFour">
+      <div *ngSwitchCase="'activity'" class="mselect-activity">
+        <ion-slides #slider pager="true"
+                    loop="true">
+          <ion-slide>
+            <div class="activitycontent">
+              <ion-card>
+                <ion-row>
+                  <ion-col width-33>
+                    <ion-thumbnail class="img-box"
+                                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
+                    </ion-thumbnail>
+                  </ion-col>
+
+                  <ion-col width-67 style="position: relative">
+                    <h2 style="text-align: left">MicroStrategy微策略全球用户峰会上海站</h2>
+                    <div style="position: absolute ;float: left; bottom: 25%">
+                      <p class="fourinner">已结束</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <div class="littletitle">
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/time@2x.png">
+                  <span>2017-1-17  09:00  5:30</span>
+                </p>
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/position@2x.png">
+                  <span>上海市静安区四季酒店</span>
+                </p>
+              </div>
+              <div style="height: 20px"></div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="activitycontent">
+              <ion-card>
+                <ion-row>
+                  <ion-col width-33>
+                    <ion-thumbnail class="img-box"
+                                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
+                    </ion-thumbnail>
+                  </ion-col>
+
+                  <ion-col width-67 style="position: relative">
+                    <h2 style="text-align: left">MicroStrategy微策略全球用户峰会上海站</h2>
+                    <div style="position: absolute ;float: left; bottom: 10px">
+                      <p class="fourinner">已结束</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <div class="littletitle">
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/time@2x.png">
+                  <span>2017-1-17  09:00  5:30</span>
+                </p>
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/position@2x.png">
+                  <span>上海市静安区四季酒店</span>
+                </p>
+              </div>
+              <div style="height: 20px"></div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+
+      <div *ngSwitchCase="'photo'" class="mselect-photo">
+        <!--<ion-card *ngFor="let item of serveListTwo">-->
+        <!--<ion-row>-->
+        <!--<ion-col width-33>-->
+        <!--<ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">-->
+        <!--</ion-thumbnail>-->
+        <!--</ion-col>-->
+
+        <!--<ion-col width-67 style="position: relative">-->
+        <!--<h2 style="text-align: left">{{item.title}}</h2>-->
+        <!--<p style="color: rgba(34, 34, 34, 0.79);">-->
+        <!--{{item.des}}-->
+        <!--</p>-->
+        <!--<div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">-->
+        <!--<div style="float: left; vertical-align: middle;color: orangered">-->
+        <!--{{item.price}}-->
+        <!--</div>-->
+        <!--<div style="float: right; vertical-align: middle">-->
+        <!--{{item.number}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</ion-col>-->
+        <!--</ion-row>-->
+        <!--</ion-card>-->
+        <ion-slides #slider pager="true"
+                    loop="true">
+          <ion-slide>
+            <div class="activitycontent">
+              <ion-card>
+                <ion-row>
+                  <ion-col width-33>
+                    <ion-thumbnail class="img-box"
+                                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
+                    </ion-thumbnail>
+                  </ion-col>
+
+                  <ion-col width-67 style="position: relative">
+                    <h2 style="text-align: left">凸维创新研习社-创业与融资分享沙龙</h2>
+                    <div style="position: absolute ;float: left; bottom: 25%">
+                      <p class="fourinner">已结束</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <div class="littletitle">
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/time@2x.png">
+                  <span>2017-1-17  09:00  5:30</span>
+                </p>
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/position@2x.png">
+                  <span>上海市静安区四季酒店</span>
+                </p>
+              </div>
+              <div style="height: 20px"></div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="activitycontent">
+              <ion-card>
+                <ion-row>
+                  <ion-col width-33>
+                    <ion-thumbnail class="img-box"
+                                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
+                    </ion-thumbnail>
+                  </ion-col>
+
+                  <ion-col width-67 style="position: relative">
+                    <h2 style="text-align: left">凸维创新研习社-创业与融资分享沙龙</h2>
+                    <div style="position: absolute ;float: left; bottom: 10px">
+                      <p class="fourinner">已结束</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <div class="littletitle">
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/time@2x.png">
+                  <span>2017-1-17  09:00  5:30</span>
+                </p>
+                <p class="fourimg">
+                  <img style="width:25px; padding-right:5px" src="assets/images/position@2x.png">
+                  <span>上海市静安区四季酒店</span>
+                </p>
+              </div>
+              <div style="height: 20px"></div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#f1f1f1 ;height: 13px"></div>
+
+  <!--第五部分-->
+  <div>
+    <ion-thumbnail class="threePic"
+                   [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/1453095464864.jpg'+ ')'}">
+    </ion-thumbnail>
+
+    <div class="fivecontent">
+
+      <div class="five-flex">
+        <div class="five-inner">
+          <img src="http://statics.ovdream.com/asset/ovdream/mobile/image/head@2x.png">
+          <span class="title">投资人</span>
+          <p class="five-sub">查看全部</p>
+        </div>
+      </div>
+
+      <div class="five-flex">
+        <div class="five-inner">
+          <img src="http://files.ovdream.com/1453443573272.png">
+          <span class="title">章苏阳</span>
+          <p class="five-sub">IDG资本/合伙人</p>
+        </div>
+      </div>
+
+      <div class="five-flex">
+        <div class="five-inner">
+          <img src="http://files.ovdream.com/1453449250196.png">
+          <span class="title">兰宁羽</span>
+          <p class="five-sub">天使汇/创始人</p>
+        </div>
+      </div>
+
+      <div class="five-flex">
+        <div class="five-inner">
+          <img src="http://files.ovdream.com/1453800409928.jpg">
+          <span class="title">许洪波</span>
+          <p class="five-sub">创新谷/合伙人</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background:#f1f1f1 ;height: 13px"></div>
+
+  <!--第六部分-->
+  <div>
+    <h6>合作伙伴</h6>
+    <div class="six-content">
+      <button ion-button>百度云随便看</button>
+      <button ion-button>是去的快播</button>
+      <button ion-button>乐视TV</button>
+      <button ion-button>优酷土豆</button>
+      <button ion-button>斗鱼</button>
+      <button ion-button>百度</button>
+      <button ion-button>快播</button>
+      <button ion-button>光谷梦想</button>
+      <button ion-button>迅雷看看</button>
+      <button ion-button>快播</button>
+    </div>
+  </div>
+</ion-content>

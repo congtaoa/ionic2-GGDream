@@ -1,0 +1,195 @@
+page-home {
+
+  // 第一部分
+  .top {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .flex-six-content{
+    display: -webkit-flex;
+    display: flex;
+    margin: 15px 0;
+  }
+
+  .flex-six{
+    flex: 1;
+    text-align: center;
+  }
+
+  .flex-six img{
+    width: 65%;
+  }
+
+  .flex-six p {
+    margin: 2px;
+
+  }
+
+  //第二部分
+  .img-box {
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    margin:5px 0;
+  }
+
+  .card-ios,.card-md{
+    width:100%;
+    margin: 0;
+  }
+
+  .card-ios{
+    box-shadow: none;//0 1px 1px rgba(0, 0, 0, 0.3);
+    border-bottom: 0.5px solid #777777;
+  }
+
+  .usericon{
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    margin:5px 0;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  .morehotseize{
+    width: 100%;
+    height: 40px;
+  }
+
+  .morehot{
+    position: absolute;
+    height: 40px;
+    line-height:40px;
+    font-size: 1.6rem;
+    right: 5px;
+    bottom: 0;
+
+  }
+  //第三部分
+  .threePic{
+    width: 100%;
+    height: 20px;
+    padding-bottom: 40%;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .segment-ios,.segment-md{
+    width: 94%;
+    margin: 0 3%;
+    border-bottom:solid 1px #e5e5e5;
+    border-top:solid 1px #e5e5e5;
+    height: 4rem;
+  }
+  .segment-ios .segment-button,.segment-md .segment-button{ border:0; color:#666;}
+  .segment-ios .segment-button:last-child,.segment-md .segment-button:last-child{ border-right:none; }
+  .segment-ios .segment-button:last-child,.segment-md .segment-button:last-child{border-left:none}
+  .segment-ios .segment-button.segment-activated,.segment-md .segment-button.segment-activated {
+    color: #00c7ad;
+    background-color: transparent;
+    //border-color: #e5e5e5;
+    border-bottom: solid 1px #df5000;
+  }
+  .segment-ios .segment-button,.segment-md .segment-button{ line-height: 3rem; font-size: medium;color: #333333}
+
+  .servethree .card-ios p:before,.card-md p:before{
+    content:"";
+    display:inline-block;
+    vertical-align: middle;
+    border-radius:50%;
+    border:solid 2px #c8c7cc;
+  }
+
+  //第四部分
+  .activitycontent  .card-ios{
+      box-shadow: none;
+      border-bottom: none;
+  }
+
+  .littletitle  p{
+    text-align: left;
+    font-size: 1.4rem;
+    padding: 0 10px;
+  }
+
+  .fourinner{
+    background: #888888;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+
+  .fourimg{
+    display: flex;
+    align-items: center;
+  }
+
+  //第五部分
+  .fivecontent{
+    display: flex;
+    padding: 15px 0;
+  }
+
+  .five-flex{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .five-inner{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .five-inner img {
+    width: 60px;
+
+    //-webkit-box-shadow: 0 0 20px rgba(255,255,25,.6), inset 0 0 20px rgba(255,255,25,1);
+    -moz-box-shadow: 0 0 20px rgba(255,255,25,.6), inset 0 0 20px rgba(255,255,25,1);
+    //box-shadow: 0 0 20px rgba(255,255,25,.6), inset 0 0 20px rgba(255,255,25,1);
+    //-webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+
+  .title{
+    color: darkorange;
+  }
+
+  .five-sub{
+    font-size: 1rem;
+  }
+
+  //第六部分
+  .six-content{
+    display: flex;
+    flex-wrap:wrap;
+    padding-bottom: 10px;
+  }
+
+  .six-content .button-ios{
+    color: #666;
+    text-align: center;
+    height: 2rem;
+    margin: 0.5rem 0.5rem;
+    background-color: #ffffff;
+    border-radius: 0.7rem;
+    border: solid 1px #999;
+  }
+}
+
+
