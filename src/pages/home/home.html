@@ -73,7 +73,7 @@
                 loop="true">
       <ion-slide>
         <div>
-          <ion-card *ngFor="let item of hotListOne">
+          <ion-card *ngFor="let item of hotListOne" (tap)="showNewsDetails(item)">
             <ion-row>
               <ion-col width-33>
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
@@ -101,7 +101,7 @@
       </ion-slide>
       <ion-slide>
         <div>
-          <ion-card *ngFor="let item of hotListTwo">
+          <ion-card *ngFor="let item of hotListTwo" (tap)="showNewsDetails(item)">
             <ion-row>
               <ion-col width-33>
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
@@ -130,7 +130,7 @@
       </ion-slide>
       <ion-slide>
         <div>
-          <ion-card *ngFor="let item of hotListThree">
+          <ion-card *ngFor="let item of hotListThree" (tap)="showNewsDetails(item)">
             <ion-row>
               <ion-col width-33>
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
@@ -157,7 +157,7 @@
         </div>
       </ion-slide>
     </ion-slides>
-    <div class="morehot">
+    <div class="morehot" (tap)="showMoreHotNews()">
       <span style="color:#777777">更多 >></span>
     </div>
   </div>

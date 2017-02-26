@@ -1,23 +1,41 @@
 import { Component,ViewChild } from '@angular/core';
-import { NavController ,MenuController,Content} from 'ionic-angular';
+import { NavController ,MenuController,Content,LoadingController} from 'ionic-angular';
 import {ISSConfig} from "../../models/common/ISSConfig";
 import {NewsPagePage} from "../news/news-page/news-page";
+import {NewsItemModel} from "../../models/common/NewsItemModel";
+import {HttpClient} from "../../providers/HttpClient";
+import {ISSPage} from "../common/ISSPage";
+import {NewsItemGroupModel} from "../../models/common/NewsItemGroupModel";
+import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage extends ISSPage{
+
+  private pageSize:number = 10;
+
+  private newsPageIndex:number = 0;
+  private newsPageTotal:number = 0;
+  newsList:Array<NewsItemModel> = [];
 
 
   constructor(public navCtrl: NavController,
-  public menuCtrl: MenuController) {
+              public menuCtrl: MenuController,
+              public loadingCtrl: LoadingController,
+              public httpclient: HttpClient,)
+  {
     // menuCtrl.enable(true);
+    super();
   }
 
-  hotListOne = ISSConfig.hotListOne;
-  hotListTwo = ISSConfig.hotListTwo;
-  hotListThree = ISSConfig.hotListThree;
+  // hotListOne = ISSConfig.hotListOne;
+  // hotListTwo = ISSConfig.hotListTwo;
+  // hotListThree = ISSConfig.hotListThree;
+  hotListOne:Array<NewsItemModel> =[];
+  hotListTwo:Array<NewsItemModel> =[];
+  hotListThree:Array<NewsItemModel> =[];
 
   serveListOne = ISSConfig.serveListOne;
   serveListTwo = ISSConfig.serveListTwo;
@@ -33,6 +51,41 @@ export class HomePage {
   }
 
   doSubmit(){}
+
+  ionViewDidLoad() {
+    // this.startLoading(this.loadingCtrl);
+    this.getNews();
+  }
+
+  getNews()
+  {
+    this.newsPageIndex++;
+    let jsonFile = "assets/json/newsList.json";
+    let jsonDict = {"jsonFile": jsonFile,"pageIndex":this.newsPageIndex,"pageSize":this.pageSize};
+    this.httpclient.getNews<NewsItemGroupModel>(jsonDict).subscribe((itemGroup)=>{
+      this.stopLoading();
+      if(itemGroup && itemGroup.result.length > 0)
+      {
+        this.newsList.push(...itemGroup.result);
+      }
+      this.hotListOne = this.newsList.slice(0,3);
+      this.hotListTwo = this.newsList.slice(1,4);
+      this.hotListThree = this.newsList.slice(2,5);
+    }, (errMsg)=>{
+      this.stopLoading();
+      console.log(errMsg);
+    })
+  }
+
+  showNewsDetails(item:NewsItemModel)
+  {
+    this.navCtrl.push(NewsDetailPagePage,{"item": item})
+  }
+
+  showMoreHotNews()
+  {
+    this.navCtrl.push(NewsPagePage);
+  }
 
   fiveSelectType(index:number){
     if (index == 1){
