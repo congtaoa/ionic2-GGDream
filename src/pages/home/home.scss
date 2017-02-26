@@ -113,6 +113,18 @@ page-home {
     border:solid 2px #c8c7cc;
   }
 
+  //.card-ios p{
+  //  overflow: hidden;
+  //  -webkit-line-clamp: 1;
+  //  -webkit-box-orient: vertical;
+  //}
+
+  .dealcount:before{
+    content:"已成交";
+    display:inline-block;
+    color: #2d2d2d;
+  }
+
   //第四部分
   .activitycontent  .card-ios{
       box-shadow: none;
