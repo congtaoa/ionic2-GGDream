@@ -1,0 +1,253 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>创Plus</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <img style="width:22px" src="assets/images/g-search@2x.png">
+      </button>
+      <button ion-button icon-only (click)="showFilter()" tappable>
+        <img style="width:25px" src="assets/images/ico_content@2x.png">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="header-div">
+    <ion-slides #slider
+                loop="true"
+                autoplay="3000">
+      <ion-slide>
+        <div class="top"
+             [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/02/03/1486111521540.jpg' + ')'}">
+          <p class="slid-p">4月人类再战阿尔法狗 这次名将柯洁将出战</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="top"
+             [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/02/03/1486111139519.jpg' + ')'}">
+          <p class="slid-p">自驾界“老炮儿”：旅游就是要“讲究...</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="top"
+             [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2016/12/02/1480661291980.jpg' + ')'}">
+          <p class="slid-p">光谷创业者必看：供给侧改革将如何影响...</p>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div style="background-color: rgb(239,242,248);height: 10px;width: 100%"></div>
+
+  <ion-segment [(ngModel)]="mySeg">
+    <ion-segment-button value="all" (ionSelect)="selectAll()">
+      全部
+    </ion-segment-button>
+    <ion-segment-button value="notice" (ionSelect)="selectNotice()">
+      创闻
+    </ion-segment-button>
+    <ion-segment-button value="new" (ionSelect)="selectNews()">
+      快讯
+    </ion-segment-button>
+    <ion-segment-button value="last">
+      最创见
+    </ion-segment-button>
+    <ion-segment-button value="newitem">
+      新项目
+    </ion-segment-button>
+    <ion-segment-button value="perception">
+      创业心法
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="mySeg" style="background-color: rgb(239,242,248);">
+    <div *ngSwitchCase="'all'" class="mselect-all">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of allList" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+      <ion-infinite-scroll [style.display]="hasMoreAll ? 'block' : 'none'" (ionInfinite)="doInfiniteAll($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <div *ngSwitchCase="'notice'" class="mselect-notice">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of noticeList" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+      <ion-infinite-scroll [style.display]="hasMoreNotice ? 'block' : 'none'" (ionInfinite)="doInfiniteNotices($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+    <div *ngSwitchCase="'new'" class="mselect-new">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of newsList" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+      <ion-infinite-scroll [style.display]="hasMoreNews ? 'block' : 'none'" (ionInfinite)="doInfiniteNews($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <div *ngSwitchCase="'last'" class="mselect-last">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of hotListOne" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+    </div>
+
+    <div *ngSwitchCase="'newitem'" class="mselect-newitem">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of hotListOne" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+    </div>
+
+    <div *ngSwitchCase="'perception'" class="mselect-perception">
+      <div class="splite-line" ></div>
+      <ion-card *ngFor="let item of hotListTwo" (tap)="showNewsDetails(item)">
+        <ion-row>
+          <ion-col width-33>
+            <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
+            </ion-thumbnail>
+          </ion-col>
+
+          <ion-col width-67 style="position: relative">
+            <h2 style="text-align: left">{{item.title}}</h2>
+            <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
+              <div style="float: left; vertical-align: middle;">
+                <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + item.icon + ')'}">
+                </ion-thumbnail>
+                <span style="color:#0c60ee">{{item.person}}</span>
+              </div>
+              <div style="float: right; vertical-align: middle; color: #999;">
+                {{item.date}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <div class="splite-line" ></div>
+    </div>
+  </div>
+
+</ion-content>

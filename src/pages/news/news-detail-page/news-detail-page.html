@@ -1,0 +1,54 @@
+<!--
+  Generated template for the NewsDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>-->
+
+<!--<ion-navbar>-->
+<!--<ion-title>NewsDetailPage</ion-title>-->
+<!--</ion-navbar>-->
+
+<!--</ion-header>-->
+
+
+<ion-content>
+  <div style="position: relative; width: 100%; height: 70px;background-color:#fff">
+    <button class="backpre" (tap)="this.navCtrl.pop()">
+      <img style="width: 16px" src="assets/images/arrow-back@2x.png">
+    </button>
+    <span class="top-title">创Plus</span>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <img style="width:25px" src="assets/images/Avatar@2x.png">
+      </button>
+      <button ion-button icon-only (click)="showFilter()" tappable>
+        <img style="width:25px" src="assets/images/ico_content@2x.png">
+      </button>
+    </ion-buttons>
+  </div>
+
+  <img src="http://statics.ovdream.com/asset/ovdream/weixin/images/banner.png" style="width: 100%">
+  <div class="splite-cell" ></div>
+
+  <ion-card>
+    <div>
+      <h2 style="color: #2d2d2d">{{this.item.title}}</h2>
+
+      <div class="origin">
+        <div style="float: left; vertical-align: middle;">
+          <ion-thumbnail class="usericon" [ngStyle]="{ 'background-image': 'url(' + this.item.icon + ')'}">
+          </ion-thumbnail>
+          <span style="color:#0c60ee">{{this.item.person}}</span>
+        </div>
+        <div style="float: right; vertical-align: middle; color: #999;">
+          {{this.item.date}}
+        </div>
+      </div>
+
+      <div class="splite-line" ></div>
+      <p>　　近日，阿里巴巴集团CEO张勇受邀为湖畔大学上了一堂课。张勇回顾了加入阿里近10年来，所经历的若干个关键时刻，以及与阿里命运相关的一些决定及背后的思考与挣扎。<br><br>　　张勇说，阿里的业务常常“分分合合”，其中最英明的一次是把淘宝、支付宝分开。“这个事情我认为奠定了今天阿里基础格局。好处是它打开了一片天，本身因为一个主场景产生另外一个业务，而这个业务最终又能够变成不只是刚才产生那个业务场景的附属物，同时变成有独立社会价值和市场价值的一个业务。”<br><br>　　“买回来一只鸡，结果孵出来一只鸭，这样的事在阿里常常发生。”张勇说，收购UCweb的时候，阿里并没有想到会做出搜索跟信息流，更没有想到，因为对UCweb的收购，对高德的收购，使得阿里在无线互联网时代形成了一个基础服务矩阵。<br><br>　　作为一家2000多亿美元市值公司的CEO，张勇表示，自己更多会思考五年、十年甚至更长时间的事情。“产品总有周期，只有整个布局是轮动的，才能避免整个公司的业务陷入集体性的低谷。”<br><br>  来源:<a href="" >界面新闻</a></p>　
+      </div>　
+  </ion-card>
+</ion-content>

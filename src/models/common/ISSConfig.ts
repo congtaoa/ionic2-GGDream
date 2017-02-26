@@ -6,7 +6,7 @@ export class ISSConfig {
 
   static myApp:any;
 
-  static hotListOne = [
+  static hotListOne:any = [
     {
       "title": "科技趣闻",
       "image": "http://files.ovdream.com/2017/01/22/1485072218442.jpg",
@@ -31,7 +31,7 @@ export class ISSConfig {
 
   ];
 
-  static hotListTwo = [
+  static hotListTwo:any = [
     {
       "title": "科技早知道",
       "image": "http://files.ovdream.com/2017/01/22/1485050966181.jpg",
@@ -56,7 +56,7 @@ export class ISSConfig {
 
   ];
 
-  static hotListThree = [
+  static hotListThree:any = [
     {
       "title": "融资在线",
       "image": "http://files.ovdream.com/2017/01/22/1485065716377.jpg",

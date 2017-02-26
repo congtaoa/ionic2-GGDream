@@ -1,6 +1,7 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController ,MenuController,Content} from 'ionic-angular';
 import {ISSConfig} from "../../models/common/ISSConfig";
+import {NewsPagePage} from "../news/news-page/news-page";
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
   public menuCtrl: MenuController) {
-    menuCtrl.enable(true);
+    // menuCtrl.enable(true);
   }
 
   hotListOne = ISSConfig.hotListOne;
@@ -31,8 +32,20 @@ export class HomePage {
     this.menuCtrl.open('filterMenu');
   }
 
-  doSubmit()
-  {
+  doSubmit(){}
 
+  fiveSelectType(index:number){
+    if (index == 1){
+      this.navCtrl.push(NewsPagePage);
+    }else if(index == 2){
+
+    }else if (index == 3){
+
+    }else if (index == 4){
+
+    }else if (index == 5){
+
+    }
   }
+
 }
