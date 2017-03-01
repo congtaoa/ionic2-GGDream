@@ -8,5 +8,5 @@ export class NewsItemModel
   icon: string;
   person : string;
   date: string;
-
+  subdes:string;
 }

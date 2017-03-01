@@ -37,6 +37,36 @@ export class HttpClient {
 
   }
 
+  // 百度TTS 合成token
+  getTTSAccessToken()
+  {
+    let url = "https://openapi.baidu.com/oauth/2.0/token";
+    let params = {
+      "grant_type": "client_credentials",
+      "client_id": "TPnGgO8zxIayL9iTTctlxqny",
+      "client_secret": "820591dad6912546574487991d6bcb7d"
+    };
+    if(this.platform.is("cordova"))
+    {
+      return Observable.fromPromise(HTTP.get(url, params, {})).map(res=>{
+        return JSON.parse(res.data);
+      }).catch(this.handleError);
+    }
+    else
+    {
+      url = url.replace("https:/", "");
+      let searchParams = new URLSearchParams();
+      for(let key in params)
+      {
+        searchParams.set(key, params[key]);
+      }
+      let reqOpts = new RequestOptions({"search": searchParams, "headers": new Headers()});
+      return this.http.get(url, reqOpts).map(res=>{
+        return res.json();
+      }).catch(this.handleError);
+    }
+  }
+
 
   private getFromJsonFile(url)
   {
