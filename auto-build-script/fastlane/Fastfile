@@ -1,0 +1,200 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.100.0"
+Encoding.default_external = Encoding::UTF_8
+default_platform :ios
+
+team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+# scheme = CredentialsManager::AppfileConfig.try_fetch_value(:scheme)
+scheme = "GGDream"
+target = scheme
+code_sign_identity = "iPhone Distribution: ISoftStone information technology group (Wuhan) Co. Ltd. (KAF6Z449Q3)"
+# git_url = "git@git.oschina.net:usernamenotfound/certificates.git"
+git_url = "https://congtaoa:tc86968274@git.oschina.net/congtaoa/certest.git"
+# git_url = "http://xdzhangm@iss110301000305/r/certificates.git"
+
+ipa_output_dir = "./builds"
+# ipa_full_path = "." + ipa_output_dir + "/" + scheme + ".ipa"
+
+platform :ios do
+  before_all do |lane, options|
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # if lane_context[SharedValues::LANE_NAME] != 'ios appstore'
+    #   checkComments(options)
+    # end
+    checkComments(options)
+    # increment_build_number
+    # cocoapods
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Submit a new Test Build to pgyer"
+  lane :ent do |options|
+    # match(type: "appstore") # more information: https://codesigning.guide
+    # checkComments(options)
+    gym(scheme: scheme, export_team_id: team_id, use_legacy_build_api: true, "output_directory": ipa_output_dir) # Build your app - more options available
+    uploadToPgyer(options)
+    # pilot
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  lane :checkComments do |options|
+    if options[:comments]
+      puts options[:comments]
+    else
+      UI.user_error! "\n\n********************************************\n===============Please input update comments===============\n eg: fastlane ios ent comments:\"fix bugs\"\n********************************************"
+      raise error
+    end
+  end
+
+  lane :uploadToPgyer do |options|
+    checkComments(options)
+    sh('curl -F "file=@' + lane_context[SharedValues::IPA_OUTPUT_PATH] + '" -F "uKey=49b3d279ecdc891de14d90f28a73ebd2" -F "_api_key=1d24fd4c066dea0eb189d4156a2fc8f2" -F "updateDescription=' + options[:comments] + '" http://www.pgyer.com/apiv1/app/upload')
+    # notification(message:"upload Pgyer successfully!", title:"upload successfully!")
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :testflight do |options|
+    # ENV["PROFILE_UDID"] = "4edc4c16-6e37-41ae-823d-2d533f042917"
+    # cert
+    # sigh(force: true)
+    ENV["PROVISIONING_PROFILE_SPECIFIER"] = team_id + "/match AppStore " + app_identifier
+    match(type: "appstore", git_url: git_url, readonly: true) # more information: https://codesigning.guide
+    gym(scheme: scheme, export_team_id: team_id, use_legacy_build_api: true, "output_directory": "./builds") # Build your app - more options available
+    ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
+    pilot(changelog: options[:comments])
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :appstore do |options|
+    # match(type: "appstore")
+    # snapshot
+    # gym(scheme: scheme) # Build your app - more options available
+    # ENV["PROVISIONING_PROFILE_SPECIFIER"] = "match AppStore " + app_identifier
+    ENV["MATCH_PASSWORD"] = "isoftstone"
+    match(type: "appstore", git_url: git_url, readonly: true) # more information: https://codesigning.guide
+    profile_udid = ENV["sigh_" + app_identifier + "_appstore"]
+    ENV["PROVISIONING_PROFILE_SPECIFIER"] = ENV["sigh_" + app_identifier + "_appstore_profile-name"]
+    profile_path = File.expand_path("~/Library/MobileDevice/Provisioning Profiles/#{profile_udid}.mobileprovision")
+
+    # Actions.sh "./ios_proj_fix.py ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/\"iPhone Developer\";/\"iPhone Distribution\";/' ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/PROVISIONING_PROFILE = \".*\";/PROVISIONING_PROFILE = \"" + profile_udid + "\";/' ../#{scheme}.xcodeproj/project.pbxproj"
+    update_project_provisioning(
+      xcodeproj: scheme + ".xcodeproj",
+      profile: profile_path, # optional if you use sigh
+      target_filter: scheme, # matches name or type of a target
+      build_configuration: "Release"
+    )
+    unlock_keychain(path: "~/Library/Keychains/login.keychain-db", password: "123@abc")
+    gym(scheme: scheme, export_team_id: team_id, codesigning_identity: code_sign_identity, "output_directory": "./builds", verbose: true) # Build your app - more options available
+    ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
+    deliver(force: true, submit_for_review: true, automatic_release: true, release_notes: {'zh-Hans'=>options[:comments]})
+    # notification(message:"upload to AppStore successfully!", title:"upload to AppStore successfully!")
+    # frameit
+  end
+
+  desc "Deploy a new version to the pgyer"
+  lane :adhoc do |options|
+    ENV["DEVELOPMENT_TEAM"] = team_id
+    # cert
+    # sigh(force: true)
+    # UI.message "............#############............"
+    # ENV["PROVISIONING_PROFILE_SPECIFIER"] = "match AdHoc " + app_identifier
+    ENV["MATCH_PASSWORD"] = "isoftstone"
+    match(type: "adhoc", git_url: git_url, skip_confirmation: true, verbose: true, force_for_new_devices: true, readonly: true)
+    profile_udid = ENV["sigh_" + app_identifier + "_adhoc"]
+    ENV["PROVISIONING_PROFILE_SPECIFIER"] = ENV["sigh_" + app_identifier + "_adhoc_profile-name"]
+    profile_path = File.expand_path("~/Library/MobileDevice/Provisioning Profiles/#{profile_udid}.mobileprovision")
+
+    # Actions.sh "./ios_proj_fix.py ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/\"iPhone Developer\";/\"iPhone Distribution\";/' ../#{scheme}.xcodeproj/project.pbxproj"
+    # Actions.sh "sed -i '' 's/PROVISIONING_PROFILE = \".*\";/PROVISIONING_PROFILE = \"" + profile_udid + "\";/' ../#{scheme}.xcodeproj/project.pbxproj"
+
+    # UI.message profile_key
+    # UI.message profile_path
+    # UI.message "match result: ====== " + match_result
+    # ENV["PROVISIONING_PROFILE"] = sigh(team_id: team_id, adhoc: true)
+    # update_project_team(
+    #   path: scheme + ".xcodeproj",
+    #   teamid: team_id
+    # )
+    update_project_provisioning(
+      xcodeproj: scheme + ".xcodeproj",
+      profile: profile_path # optional if you use sigh
+      # target_filter: scheme, # matches name or type of a target
+      # build_configuration: "Release"
+    )
+    unlock_keychain(path: "~/Library/Keychains/login.keychain-db", password: "123@abc")
+    gym(scheme: scheme, export_team_id: team_id, codesigning_identity: code_sign_identity, "output_directory": ipa_output_dir, verbose: true) # Build your app - more options available
+    uploadToPgyer(options)
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  # You can define as many lanes as you want
+  lane :hello do |options|
+    puts __FILE__
+    puts File.expand_path(File.dirname(__FILE__))
+    if options[:comments]
+      puts options[:comments]
+      notification(message:"My Text", title:"The Title")
+    else
+      UI.error "\n\n********************************************\n===============Please input update comments===============\n eg: fastlane ios ent comments:\"fix bugs\"\n********************************************"
+      raise error
+    end
+  end
+
+  lane :clean do
+    # sh 'rm -rf .' + ipa_output_dir
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+    clean
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+    # clean
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
