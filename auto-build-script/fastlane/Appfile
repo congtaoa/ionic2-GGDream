@@ -1,6 +1,0 @@
-app_identifier "com.isoftstone.GGDream"
-apple_id '450146604@qq.com'
-team_id "KAF6Z449Q3"
-
-# you can even provide different app identifiers, Apple IDs and team names per lane:
-# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
