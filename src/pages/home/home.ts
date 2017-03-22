@@ -91,7 +91,7 @@ export class HomePage extends ISSPage{
     if (index == 1){
       this.navCtrl.push(NewsPagePage);
     }else if(index == 2){
-
+      window.open('http://www.baidu.com/', "_system");
     }else if (index == 3){
 
     }else if (index == 4){
