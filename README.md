@@ -1,6 +1,6 @@
 # ionic2-GGDream
 
-###2017-3-22 ionic2版本更新
+### 2017-3-22 ionic2版本更新
 >删除项目下的node_modules目录，修改package.json，并重新安装依赖
 ```
  $ npm install
