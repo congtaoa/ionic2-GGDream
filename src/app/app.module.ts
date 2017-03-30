@@ -12,6 +12,7 @@ import {NewsDetailPagePage} from "../pages/news/news-detail-page/news-detail-pag
 import {MapPagePage} from "../pages/map/map-page/map-page";
 import {LineMapPagePage} from "../pages/map/line-map-page/line-map-page";
 import {MePagePage} from "../pages/me/me-page/me-page";
+import {LoginPagePage} from "../pages/me/login-page/login-page";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MePagePage} from "../pages/me/me-page/me-page";
     MapPagePage,
     LineMapPagePage,
     MePagePage,
+    LoginPagePage,
     TabsPage
   ],
   imports: [
@@ -45,6 +47,7 @@ import {MePagePage} from "../pages/me/me-page/me-page";
     MapPagePage,
     LineMapPagePage,
     MePagePage,
+    LoginPagePage,
     TabsPage
   ],
   providers: [HttpClient]
