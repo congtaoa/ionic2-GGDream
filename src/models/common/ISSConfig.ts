@@ -3,7 +3,12 @@
  */
 
 export class ISSConfig {
-
+  // static APP_LAT: number = 30.482057;
+  // static APP_LNG: number = 114.40829;
+  // static APP_ADDRESS: string = "武汉市洪山区";
+  static APP_LAT: number = 31.021951;
+  static APP_LNG: number = 113.126655;
+  static APP_ADDRESS: string = "荆门市京山县";
   static myApp:any;
 
   static hotListOne:any = [

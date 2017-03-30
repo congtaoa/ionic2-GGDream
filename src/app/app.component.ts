@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import {FilterInterface} from "../pages/filter/FilterInterface";
+import {LocationUtils} from "../pages/utils/LocationUtils";
 
 declare let cordova:any;
 
@@ -22,6 +23,13 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      LocationUtils.getCurrentLocation(platform, (point:any)=> {
+        console.log("定位成功！" + point.lat + ", " + point.lng);
+
+      }, ()=> {
+        console.log("定位失败！");
+      });
     });
   }
 

@@ -35,7 +35,7 @@
     "@ionic/app-scripts": "1.1.4",
     "ncp": "^2.0.0",
     "typescript": "2.0.9",
-    "sw-toolbox":"^3.6.0"
+    "sw-toolbox": "^3.6.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
@@ -44,7 +44,9 @@
     "cordova-plugin-device",
     "ionic-plugin-keyboard",
     "cordova-plugin-statusbar",
-    "cordova-custom-config"
+    "cordova-custom-config",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-compat"
   ],
   "cordovaPlatforms": [
     "ios",

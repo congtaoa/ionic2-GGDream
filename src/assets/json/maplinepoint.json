@@ -1,0 +1,137 @@
+{
+  "result": [
+    {
+      "StationGuid": "66F855EDD2C0474EAD5E66CD7E5A6ADF",
+      "StationName": "太力集团",
+      "Longitude": "113.1688",
+      "Latitude": "31.01889",
+      "Distance": null,
+      "StationNo": "0",
+      "Attribute": "起点站",
+      "IsCollect": "1",
+      "CollectGuid": "875e16ea-6f31-440d-acb1-c785516a7b17",
+      "LineList": null
+    },
+    {
+      "StationGuid": "6867F37CD5FA487398B89D7F72460047",
+      "StationName": "伟嘉公司",
+      "Longitude": "113.1711",
+      "Latitude": "31.01462",
+      "Distance": null,
+      "StationNo": "1",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "76875DB1F63A4871B5D8CA167C83C5B8",
+      "StationName": "八里途居民点",
+      "Longitude": "113.1667",
+      "Latitude": "31.0148",
+      "Distance": null,
+      "StationNo": "2",
+      "Attribute": "小站",
+      "IsCollect": "1",
+      "CollectGuid": "2ddd2da8-9070-4ddc-bf80-23069ff069bd",
+      "LineList": null
+    },
+    {
+      "StationGuid": "CFC05AEA4A174C9292D2DFE9E9DB6B93",
+      "StationName": "京山一中",
+      "Longitude": "113.162",
+      "Latitude": "31.01704",
+      "Distance": null,
+      "StationNo": "3",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "9F545F9ECFBE4F3EA613E3ECE50913E6",
+      "StationName": "八里途村委会",
+      "Longitude": "113.1566",
+      "Latitude": "31.0194",
+      "Distance": null,
+      "StationNo": "4",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "3744268879E64989BEC4FE96025F17F8",
+      "StationName": "何家苑",
+      "Longitude": "113.1467",
+      "Latitude": "31.02115",
+      "Distance": null,
+      "StationNo": "5",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "91F0787BCB8A4D21B7B9D08F5A97C041",
+      "StationName": "查家苑",
+      "Longitude": "113.1434",
+      "Latitude": "31.02209",
+      "Distance": null,
+      "StationNo": "6",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "F9E73FEDB37242298C7FE57CC9428EE9",
+      "StationName": "东苑新村",
+      "Longitude": "113.1408",
+      "Latitude": "31.02221",
+      "Distance": null,
+      "StationNo": "7",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "DE80BE4BA997492FB36F958180A8D889",
+      "StationName": "原种厂",
+      "Longitude": "113.1376",
+      "Latitude": "31.02211",
+      "Distance": null,
+      "StationNo": "8",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "59A0814CBE0D41EEA3C418E017F30146",
+      "StationName": "书生小区",
+      "Longitude": "113.1346",
+      "Latitude": "31.02231",
+      "Distance": null,
+      "StationNo": "9",
+      "Attribute": "小站",
+      "IsCollect": "0",
+      "CollectGuid": "",
+      "LineList": null
+    },
+    {
+      "StationGuid": "E5D16F4CEC7645F7AB5CA706FE0484BA",
+      "StationName": "邮政新村",
+      "Longitude": "113.1311",
+      "Latitude": "31.023",
+      "Distance": null,
+      "StationNo": "10",
+      "Attribute": "小站",
+      "IsCollect": "1",
+      "CollectGuid": "a5eb9cad-98e1-4036-a7ee-22af844c3a5a",
+      "LineList": null
+    }
+  ]
+}
+

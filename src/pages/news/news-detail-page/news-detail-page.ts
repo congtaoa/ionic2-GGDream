@@ -143,4 +143,5 @@ export class NewsDetailPagePage extends  ISSPage{
     this.menuCtrl.open('filterMenu');
   }
 
+
 }

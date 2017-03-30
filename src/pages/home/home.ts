@@ -52,6 +52,10 @@ export class HomePage extends ISSPage{
 
   doSubmit(){}
 
+  showMe(){
+    this.navCtrl.parent.select(3);
+  }
+
   ionViewDidLoad() {
     // this.startLoading(this.loadingCtrl);
     this.getNews();

@@ -9,6 +9,9 @@ import {NewsPagePage} from "../pages/news/news-page/news-page";
 import {HttpClient} from "../providers/HttpClient";
 import {JsonpModule, HttpModule} from "@angular/http";
 import {NewsDetailPagePage} from "../pages/news/news-detail-page/news-detail-page";
+import {MapPagePage} from "../pages/map/map-page/map-page";
+import {LineMapPagePage} from "../pages/map/line-map-page/line-map-page";
+import {MePagePage} from "../pages/me/me-page/me-page";
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import {NewsDetailPagePage} from "../pages/news/news-detail-page/news-detail-pag
     HomePage,
     NewsPagePage,
     NewsDetailPagePage,
+    MapPagePage,
+    LineMapPagePage,
+    MePagePage,
     TabsPage
   ],
   imports: [
@@ -36,6 +42,9 @@ import {NewsDetailPagePage} from "../pages/news/news-detail-page/news-detail-pag
     HomePage,
     NewsPagePage,
     NewsDetailPagePage,
+    MapPagePage,
+    LineMapPagePage,
+    MePagePage,
     TabsPage
   ],
   providers: [HttpClient]

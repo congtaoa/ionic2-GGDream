@@ -20,9 +20,9 @@
     </button>
     <span class="top-title">创Plus</span>
     <ion-buttons end>
-      <button ion-button icon-only>
-        <img style="width:25px" src="assets/images/Avatar@2x.png">
-      </button>
+      <!--<button ion-button icon-only>-->
+        <!--<img style="width:25px" src="assets/images/Avatar@2x.png">-->
+      <!--</button>-->
       <button ion-button icon-only (click)="showFilter()" tappable>
         <img style="width:25px" src="assets/images/ico_content@2x.png">
       </button>
@@ -52,7 +52,7 @@
 
       </div>
     </div>
-    <button ion-button full style="width: 60px; height: 60px"  (click)="playAudio()" tappable><img src="assets/images/{{isAudioPlaying?'btn_sound_nomal@2x.png':'btn_sound_click@2x.png'}}"/>{{isAudioPlaying?'暂停':'播放'}}</button>
+    <button  ion-button  style="width: 60px; height: 60px"  (click)="playAudio()" tappable><img src="assets/images/{{isAudioPlaying?'btn_sound_nomal@2x.png':'btn_sound_click@2x.png'}}"/>{{isAudioPlaying?'暂停':'播放'}}</button>
 
   </ion-card>
   <audio #mapAudio id="map_audio"></audio>
