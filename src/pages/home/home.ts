@@ -14,6 +14,7 @@ import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
 })
 export class HomePage extends ISSPage{
 
+  @ViewChild('slider') slidscroll;
   private pageSize:number = 10;
 
   private newsPageIndex:number = 0;
@@ -59,6 +60,14 @@ export class HomePage extends ISSPage{
   ionViewDidLoad() {
     // this.startLoading(this.loadingCtrl);
     this.getNews();
+  }
+
+  ionViewWillEnter (){
+    this.slidscroll.startAutoplay();
+  }
+
+  ionViewWillLeave(){
+    this.slidscroll.stopAutoplay();
   }
 
   getNews()
