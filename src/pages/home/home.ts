@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import { NavController ,MenuController,Content,LoadingController} from 'ionic-angular';
+import { NavController ,MenuController,Content,LoadingController,Slides} from 'ionic-angular';
 import {ISSConfig} from "../../models/common/ISSConfig";
 import {NewsPagePage} from "../news/news-page/news-page";
 import {NewsItemModel} from "../../models/common/NewsItemModel";
@@ -14,7 +14,7 @@ import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
 })
 export class HomePage extends ISSPage{
 
-  @ViewChild('slider') slidscroll;
+  @ViewChild('slider') slidscroll : Slides;
   private pageSize:number = 10;
 
   private newsPageIndex:number = 0;
