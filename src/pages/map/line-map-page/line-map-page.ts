@@ -53,7 +53,7 @@ export class LineMapPagePage {
 //     this.map.addControl(geolocationControl);
 
     let point = new BMap.Point(ISSConfig.APP_LNG, ISSConfig.APP_LAT);
-    this.map.centerAndZoom(point, 14);
+    this.map.centerAndZoom(point, 15);
 
 
     var top_right_navigation = new BMap.NavigationControl({
@@ -135,6 +135,8 @@ export class LineMapPagePage {
     var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
     var infoWindow = new BMap.InfoWindow(content, this.opts);  // 创建信息窗口对象
     this.map.openInfoWindow(infoWindow, point); //开启信息窗口
+
   }
+
 
 }

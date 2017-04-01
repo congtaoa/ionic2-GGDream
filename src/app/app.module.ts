@@ -13,6 +13,7 @@ import {MapPagePage} from "../pages/map/map-page/map-page";
 import {LineMapPagePage} from "../pages/map/line-map-page/line-map-page";
 import {MePagePage} from "../pages/me/me-page/me-page";
 import {LoginPagePage} from "../pages/me/login-page/login-page";
+import {MarkerMapPagerPage} from "../pages/map/marker-map-pager/marker-map-pager";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {LoginPagePage} from "../pages/me/login-page/login-page";
     NewsDetailPagePage,
     MapPagePage,
     LineMapPagePage,
+    MarkerMapPagerPage,
     MePagePage,
     LoginPagePage,
     TabsPage
@@ -46,6 +48,7 @@ import {LoginPagePage} from "../pages/me/login-page/login-page";
     NewsDetailPagePage,
     MapPagePage,
     LineMapPagePage,
+    MarkerMapPagerPage,
     MePagePage,
     LoginPagePage,
     TabsPage

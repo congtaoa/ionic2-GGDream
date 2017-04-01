@@ -4,6 +4,7 @@ import {LineMapPagePage} from "../line-map-page/line-map-page";
 import {LineMapGropModel, LineMapModel} from "../../../models/common/LineMapModel";
 import {HttpClient} from "../../../providers/HttpClient";
 import {ISSPage} from "../../common/ISSPage";
+import {MarkerMapPagerPage} from "../marker-map-pager/marker-map-pager";
 
 /*
   Generated class for the MapPage page.
@@ -34,11 +35,11 @@ export class MapPagePage  extends  ISSPage{
   }
 
   openPage(index:number){
-    if (index == 1){
-     
-      this.navCtrl.push(LineMapPagePage,{lineStationListData:this.lineStationListData});
-    }else if (index == 2){
+    if (index == 2){
 
+      this.navCtrl.push(LineMapPagePage,{lineStationListData:this.lineStationListData});
+    }else if (index == 1){
+      this.navCtrl.push(MarkerMapPagerPage);
     }
 
   }
