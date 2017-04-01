@@ -1,0 +1,38 @@
+<!--
+  Generated template for the MarkerMapPager page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>点地图</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div id="Point_map"></div>
+  <div id="map_poi_details" *ngIf="showPoiInfo">
+    <ion-card  (tap)="detailButtonTapped()">
+      <ion-row>
+        <ion-col width-33>
+          <ion-thumbnail class="padBottom-100"
+                         [ngStyle]="{ 'background-image': 'url(assets/images/my-bg-login@2x.png)'}">
+          </ion-thumbnail>
+        </ion-col>
+
+        <ion-col width-67>
+          <h2 style="color: #2d2d2d">光谷广场</h2>
+          <p>
+            <span>021-88888888</span>
+            <span style="float: right; color: #ebb650">2.5km</span>
+          </p>
+          <p class="distancestyle">光谷广场</p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
