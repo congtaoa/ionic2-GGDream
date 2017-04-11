@@ -2,6 +2,12 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { HTTP } from '@ionic-native/http';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Toast } from '@ionic-native/toast';
+
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import {MyChartPagePage} from "../pages/Chart/my-chart-page/my-chart-page";
@@ -13,7 +19,8 @@ import {MapPagePage} from "../pages/map/map-page/map-page";
 import {LineMapPagePage} from "../pages/map/line-map-page/line-map-page";
 import {MePagePage} from "../pages/me/me-page/me-page";
 import {LoginPagePage} from "../pages/me/login-page/login-page";
-import {MarkerMapPagerPage} from "../pages/map/marker-map-pager/marker-map-pager";
+import { MarkerMapPagerPage } from "../pages/map/marker-map-pager/marker-map-pager";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
   declarations: [
@@ -32,6 +39,7 @@ import {MarkerMapPagerPage} from "../pages/map/marker-map-pager/marker-map-pager
   imports: [
     HttpModule,
     JsonpModule,
+    BrowserModule,
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages:"true",
       backButtonText: '',
@@ -53,6 +61,13 @@ import {MarkerMapPagerPage} from "../pages/map/marker-map-pager/marker-map-pager
     LoginPagePage,
     TabsPage
   ],
-  providers: [HttpClient]
+  providers: [
+    HttpClient,
+    HTTP,
+    SplashScreen,
+    StatusBar,
+    Toast,
+    Geolocation,
+  ]
 })
 export class AppModule {}

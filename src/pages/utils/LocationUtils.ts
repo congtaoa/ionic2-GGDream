@@ -2,7 +2,7 @@
  * Created by taocong on 2017/3/30.
  */
 import {Platform} from "ionic-angular";
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 // import {LoginUserInfoModel} from "../model/common/LoginUserInfoModel";
 
 
@@ -11,14 +11,14 @@ declare let BMAP_STATUS_SUCCESS:any;
 
 export class LocationUtils
 {
-  static getCurrentLocation(platform: Platform, successCallback, failureCallback)
+  static getCurrentLocation(nativeGeolocation: Geolocation,platform: Platform, successCallback, failureCallback)
   {
     let timeoutMilS = 10000;
     // 如果10秒定位失败，则返回
 
     if(platform.is("cordova"))
     {
-      Geolocation.getCurrentPosition({'timeout': timeoutMilS}).then((resp) => {
+      nativeGeolocation.getCurrentPosition({'timeout': timeoutMilS}).then((resp) => {
         console.log("gps: " + resp.coords.latitude + ", " + resp.coords.longitude);
         let convertor = new BMap.Convertor();
         let pointArr = [];

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import {Http, Response, Jsonp, URLSearchParams, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs";
-import { HTTP } from 'ionic-native';
+import { HTTP } from '@ionic-native/http';
 import { Platform } from 'ionic-angular';
 /*
  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
@@ -15,7 +15,7 @@ import { Platform } from 'ionic-angular';
 
 export class HttpClient {
 
-  constructor(public jsonp: Jsonp, public http: Http, public platform: Platform)
+  constructor(public jsonp: Jsonp, public http: Http, public platform: Platform,public nativeHttp: HTTP)
   {
   }
 
@@ -48,7 +48,7 @@ export class HttpClient {
     };
     if(this.platform.is("cordova"))
     {
-      return Observable.fromPromise(HTTP.get(url, params, {})).map(res=>{
+      return Observable.fromPromise(this.nativeHttp.get(url, params, {})).map((res:any) =>{
         return JSON.parse(res.data);
       }).catch(this.handleError);
     }

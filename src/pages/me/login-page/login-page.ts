@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,LoadingController ,ToastController,Platform,Loading } from 'ionic-angular';
-import {Toast} from "ionic-native";
+import {Toast} from "@ionic-native/toast";
 import {ISSPage} from "../../common/ISSPage";
 
 /*
@@ -23,7 +23,8 @@ export class LoginPagePage extends ISSPage{
               public navParams: NavParams,
               public platform: Platform,
               private toastCtrl: ToastController,
-              public  loadingCtrl: LoadingController)
+              public  loadingCtrl: LoadingController,
+              private nativeToast: Toast)
   {
     super();
   }
@@ -62,7 +63,7 @@ export class LoginPagePage extends ISSPage{
   presentToast(msg:string) {
     if(this.platform.is("cordova"))
     {
-      Toast.show(msg, '2000', 'center').subscribe(
+      this.nativeToast.show(msg, '2000', 'center').subscribe(
         toast => {
           console.log(toast);
         }
