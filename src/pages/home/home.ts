@@ -7,7 +7,9 @@ import {HttpClient} from "../../providers/HttpClient";
 import {ISSPage} from "../common/ISSPage";
 import {NewsItemGroupModel} from "../../models/common/NewsItemGroupModel";
 import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
+import { IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

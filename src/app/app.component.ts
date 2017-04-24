@@ -3,7 +3,7 @@ import {Platform, NavController, Menu, Content} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
 import {FilterInterface} from "../pages/filter/FilterInterface";
 import {LocationUtils} from "../pages/utils/LocationUtils";
 
@@ -15,7 +15,7 @@ declare let cordova:any;
 export class MyApp {
   @ViewChild('nav') nav: NavController;
   @ViewChild('filterMenu') filterMenu: Menu;
-  rootPage = TabsPage;
+  rootPage = "TabsPage";
   filterWorker: FilterInterface;
 
   constructor( public platform: Platform,
@@ -80,7 +80,7 @@ export class MyApp {
       {
         window.setTimeout(()=>{
           this.splashScreen.hide();
-        }, 500);
+        }, 100);
       }
     }
     else

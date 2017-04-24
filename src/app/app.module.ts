@@ -26,7 +26,7 @@ import { BrowserModule } from "@angular/platform-browser";
   declarations: [
     MyApp,
     MyChartPagePage,
-    HomePage,
+    // HomePage,
     NewsPagePage,
     NewsDetailPagePage,
     MapPagePage,
@@ -34,7 +34,7 @@ import { BrowserModule } from "@angular/platform-browser";
     MarkerMapPagerPage,
     MePagePage,
     LoginPagePage,
-    TabsPage
+    // TabsPage
   ],
   imports: [
     HttpModule,
@@ -51,7 +51,7 @@ import { BrowserModule } from "@angular/platform-browser";
   entryComponents: [
     MyApp,
     MyChartPagePage,
-    HomePage,
+    // HomePage,
     NewsPagePage,
     NewsDetailPagePage,
     MapPagePage,
@@ -59,7 +59,7 @@ import { BrowserModule } from "@angular/platform-browser";
     MarkerMapPagerPage,
     MePagePage,
     LoginPagePage,
-    TabsPage
+    // TabsPage
   ],
   providers: [
     HttpClient,
