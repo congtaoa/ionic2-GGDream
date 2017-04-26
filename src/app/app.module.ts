@@ -8,8 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Toast } from '@ionic-native/toast';
 
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { HomePage } from '../pages/home/home';
+// import { TabsPage } from '../pages/tabs/tabs';
 import {MyChartPagePage} from "../pages/Chart/my-chart-page/my-chart-page";
 import {NewsPagePage} from "../pages/news/news-page/news-page";
 import {HttpClient} from "../providers/HttpClient";
