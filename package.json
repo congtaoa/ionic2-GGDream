@@ -24,6 +24,7 @@
     "@ionic-native/core": "3.5.0",
     "@ionic-native/geolocation": "3.5.0",
     "@ionic-native/http": "3.5.0",
+    "@ionic-native/in-app-browser": "3.5.0",
     "@ionic-native/splash-screen": "3.5.0",
     "@ionic-native/status-bar": "3.5.0",
     "@ionic-native/toast": "3.5.0",
@@ -70,6 +71,7 @@
     {
       "locator": "https://github.com/driftyco/cordova-plugin-wkwebview-engine.git",
       "id": "cordova-plugin-wkwebview-engine"
-    }
+    },
+    "cordova-plugin-inappbrowser"
   ]
 }

@@ -95,4 +95,5 @@
     <plugin name="cordova-plugin-http" spec="~1.2.0" />
     <plugin name="cordova-plugin-x-toast" spec="~2.6.0" />
     <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/driftyco/cordova-plugin-wkwebview-engine.git" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.0" />
 </widget>

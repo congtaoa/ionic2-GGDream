@@ -9,6 +9,8 @@ import {NewsItemGroupModel} from "../../models/common/NewsItemGroupModel";
 import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
 import { IonicPage } from 'ionic-angular';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -27,7 +29,8 @@ export class HomePage extends ISSPage{
   constructor(public navCtrl: NavController,
               public menuCtrl: MenuController,
               public loadingCtrl: LoadingController,
-              public httpclient: HttpClient,)
+              public httpclient: HttpClient,
+              private inAppBrowser: InAppBrowser)
   {
     // menuCtrl.enable(true);
     super();
@@ -106,7 +109,8 @@ export class HomePage extends ISSPage{
     if (index == 1){
       this.navCtrl.push(NewsPagePage);
     }else if(index == 2){
-      window.open('http://www.baidu.com/', "_system");
+      // window.open('http://www.baidu.com/', '_system');
+      this.inAppBrowser.create('http://www.baidu.com/', '_system');
     }else if (index == 3){
 
     }else if (index == 4){
