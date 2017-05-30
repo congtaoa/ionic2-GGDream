@@ -75,12 +75,12 @@
         <div>
           <ion-card *ngFor="let item of hotListOne" (tap)="showNewsDetails(item)">
             <ion-row>
-              <ion-col width-33>
+              <ion-col style="flex:33; padding:0 5px 0 0;">
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
                 </ion-thumbnail>
               </ion-col>
 
-              <ion-col width-67 style="position: relative">
+              <ion-col  style="position: relative; flex:67">
                 <h2 style="text-align: left">{{item.title}}</h2>
                 <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
                   <div style="float: left; vertical-align: middle;">
@@ -103,12 +103,12 @@
         <div>
           <ion-card *ngFor="let item of hotListTwo" (tap)="showNewsDetails(item)">
             <ion-row>
-              <ion-col width-33>
+              <ion-col style="flex:33; padding:0 5px 0 0;">
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
                 </ion-thumbnail>
               </ion-col>
 
-              <ion-col width-67 style="position: relative">
+              <ion-col  style="flex: 67; position: relative">
                 <h2 style="text-align: left">{{item.title}}</h2>
                 <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
                   <div style="float: left; vertical-align: middle">
@@ -132,12 +132,12 @@
         <div>
           <ion-card *ngFor="let item of hotListThree" (tap)="showNewsDetails(item)">
             <ion-row>
-              <ion-col width-33>
+              <ion-col style="flex:33; padding:0 5px 0 0;">
                 <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
                 </ion-thumbnail>
               </ion-col>
 
-              <ion-col width-67 style="position: relative">
+              <ion-col  style="flex:67; position: relative">
                 <h2 style="text-align: left">{{item.title}}</h2>
                 <div style="position: absolute; bottom: 10px; width: 95% ;height: 30px; line-height: 30px">
                   <div style="float: left; vertical-align: middle">
@@ -189,12 +189,12 @@
       <div *ngSwitchCase="'info'" class="mselect-info">
         <ion-card *ngFor="let item of serveListOne">
           <ion-row>
-            <ion-col width-33>
+            <ion-col style="flex:33; padding:0 5px 0 0;">
               <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
               </ion-thumbnail>
             </ion-col>
 
-            <ion-col width-67 style="position: relative">
+            <ion-col  style="flex:67; position: relative">
               <h2 style="text-align: left">{{item.title}}</h2>
               <p style="color: rgba(34, 34, 34, 0.79);">
                 {{item.des}}
@@ -215,12 +215,12 @@
       <div *ngSwitchCase="'recom'" class="mselect-recom">
         <ion-card *ngFor="let item of serveListTwo">
           <ion-row>
-            <ion-col width-33>
+            <ion-col style="flex:33; padding:0 5px 0 0;">
               <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
               </ion-thumbnail>
             </ion-col>
 
-            <ion-col width-67 style="position: relative">
+            <ion-col style="flex:67; position: relative">
               <h2 style="text-align: left">{{item.title}}</h2>
               <p style="color: rgba(34, 34, 34, 0.79);">
                 {{item.des}}
@@ -240,12 +240,12 @@
       <div *ngSwitchCase="'serve'" class="mselect-serve">
         <ion-card *ngFor="let item of serveListThree">
           <ion-row>
-            <ion-col width-33>
+            <ion-col style="flex:33; padding:0 5px 0 0;">
               <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
               </ion-thumbnail>
             </ion-col>
 
-            <ion-col width-67 style="position: relative">
+            <ion-col  style="flex:67; position: relative">
               <h2 style="text-align: left">{{item.title}}</h2>
               <p style="color: rgba(34, 34, 34, 0.79);">
                 {{item.des}}
@@ -266,12 +266,12 @@
       <div *ngSwitchCase="'develop'" class="mselect-develop">
         <ion-card *ngFor="let item of serveListFour">
           <ion-row>
-            <ion-col width-33>
+            <ion-col style="flex:33; padding:0 5px 0 0;">
               <ion-thumbnail class="img-box" [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}">
               </ion-thumbnail>
             </ion-col>
 
-            <ion-col width-67 style="position: relative">
+            <ion-col  style="flex:67; position: relative">
               <h2 style="text-align: left">{{item.title}}</h2>
               <p style="color: rgba(34, 34, 34, 0.79);">
                 {{item.des}}
@@ -311,13 +311,13 @@
             <div class="activitycontent">
               <ion-card>
                 <ion-row>
-                  <ion-col width-33>
+                  <ion-col style="flex:33; padding:0 5px 0 0;">
                     <ion-thumbnail class="img-box"
                                    [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
                     </ion-thumbnail>
                   </ion-col>
 
-                  <ion-col width-67 style="position: relative">
+                  <ion-col  style="flex:67; position: relative">
                     <h2 style="text-align: left">MicroStrategy微策略全球用户峰会上海站</h2>
                     <div style="position: absolute ;float: left; bottom: 25%">
                       <p class="fourinner">已结束</p>
@@ -342,13 +342,13 @@
             <div class="activitycontent">
               <ion-card>
                 <ion-row>
-                  <ion-col width-33>
+                  <ion-col style="flex:33; padding:0 5px 0 0;">
                     <ion-thumbnail class="img-box"
                                    [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
                     </ion-thumbnail>
                   </ion-col>
 
-                  <ion-col width-67 style="position: relative">
+                  <ion-col style="flex:67; position: relative">
                     <h2 style="text-align: left">MicroStrategy微策略全球用户峰会上海站</h2>
                     <div style="position: absolute ;float: left; bottom: 10px">
                       <p class="fourinner">已结束</p>
@@ -402,13 +402,13 @@
             <div class="activitycontent">
               <ion-card>
                 <ion-row>
-                  <ion-col width-33>
+                  <ion-col style="flex:33; padding:0 5px 0 0;">
                     <ion-thumbnail class="img-box"
                                    [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
                     </ion-thumbnail>
                   </ion-col>
 
-                  <ion-col width-67 style="position: relative">
+                  <ion-col style="flex:67; position: relative">
                     <h2 style="text-align: left">凸维创新研习社-创业与融资分享沙龙</h2>
                     <div style="position: absolute ;float: left; bottom: 25%">
                       <p class="fourinner">已结束</p>
@@ -433,13 +433,13 @@
             <div class="activitycontent">
               <ion-card>
                 <ion-row>
-                  <ion-col width-33>
+                  <ion-col style="flex:33; padding:0 5px 0 0;">
                     <ion-thumbnail class="img-box"
                                    [ngStyle]="{ 'background-image': 'url(' + 'http://files.ovdream.com/2017/01/16/1484557151634.jpg' + ')'}">
                     </ion-thumbnail>
                   </ion-col>
 
-                  <ion-col width-67 style="position: relative">
+                  <ion-col  style="flex:67; position: relative">
                     <h2 style="text-align: left">凸维创新研习社-创业与融资分享沙龙</h2>
                     <div style="position: absolute ;float: left; bottom: 10px">
                       <p class="fourinner">已结束</p>

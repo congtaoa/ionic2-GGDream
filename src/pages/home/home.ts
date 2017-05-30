@@ -7,7 +7,8 @@ import {HttpClient} from "../../providers/HttpClient";
 import {ISSPage} from "../common/ISSPage";
 import {NewsItemGroupModel} from "../../models/common/NewsItemGroupModel";
 import {NewsDetailPagePage} from "../news/news-detail-page/news-detail-page";
-import { IonicPage } from 'ionic-angular';
+import { IonicPage,Platform } from 'ionic-angular';
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
@@ -30,7 +31,9 @@ export class HomePage extends ISSPage{
               public menuCtrl: MenuController,
               public loadingCtrl: LoadingController,
               public httpclient: HttpClient,
-              private inAppBrowser: InAppBrowser)
+              private inAppBrowser: InAppBrowser,
+              private themeableBrowser: ThemeableBrowser,
+              public platform: Platform)
   {
     // menuCtrl.enable(true);
     super();
@@ -109,13 +112,42 @@ export class HomePage extends ISSPage{
     if (index == 1){
       this.navCtrl.push(NewsPagePage);
     }else if(index == 2){
-      // window.open('http://www.baidu.com/', '_system');
+      // window.open('http://www.baidu.com/', '_system'); 
       this.inAppBrowser.create('http://www.baidu.com/', '_system');
     }else if (index == 3){
-
+        // this.inAppBrowser.create('http://waimaie.meituan.com', '_system');
     }else if (index == 4){
+      if (this.platform.is('cordova')) {
+        console.log("I'm an iOS device!");
+        let options = {
+          statusbar: {
+            color: '#8e643b'
+          },
+          toolbar: {
+            height: 44,
+            color: '#8e643b'
+          },
+          title: {
+            color: '#ffffff',
+            showPageTitle: true,
 
-    }else if (index == 5){
+          },
+          closeButton: {
+            wwwImage: 'assets/images/news/close@2x.png',
+            wwwImagePressed: 'close_pressed',
+            wwwImageDensity: 2,
+            align: 'left',
+            event: 'closePressed'
+          },
+          backButtonCanClose: true
+        };
+        let browser = this.themeableBrowser.create('http://waimaie.meituan.com', '_blank', options);
+        // browser.show();
+      }else {
+        window.open('http://waimaie.meituan.com');
+      }
+    }
+     else if (index == 5){
 
     }
   }

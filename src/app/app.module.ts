@@ -8,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Toast } from '@ionic-native/toast';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ThemeableBrowser } from '@ionic-native/themeable-browser';
+
 
 // import { HomePage } from '../pages/home/home';
 // import { TabsPage } from '../pages/tabs/tabs';
@@ -69,7 +71,8 @@ import { BrowserModule } from "@angular/platform-browser";
     StatusBar,
     Toast,
     Geolocation,
-    InAppBrowser
+    InAppBrowser,
+    ThemeableBrowser
   ]
 })
 export class AppModule {}

@@ -21,6 +21,7 @@ export class MarkerMapPagerPage {
   // 选中的poi点
   showPoiInfo:boolean = false;
 
+  map: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -28,12 +29,12 @@ export class MarkerMapPagerPage {
     console.log('ionViewDidLoad MarkerMapPagerPage');
 
     // 百度地图API功能
-    let map = new BMap.Map("Point_map");
+     this.map = new BMap.Map("Point_map");
     let point = new BMap.Point(116.417854,39.921988);
-    map.centerAndZoom(point, 15);
+    this.map.centerAndZoom(point, 15);
 
     let opts = {type: BMAP_NAVIGATION_CONTROL_SMALL, enableGeolocation: true};
-    map.addControl(new BMap.NavigationControl(opts));
+    this.map.addControl(new BMap.NavigationControl(opts));
   // 添加定位控件
     let geolocationControl = new BMap.GeolocationControl();
     geolocationControl.addEventListener("locationSuccess", function(e){
@@ -43,11 +44,11 @@ export class MarkerMapPagerPage {
     geolocationControl.addEventListener("locationError",function(e){
       this.showFailureAlert("定位当前位置失败,请检查是否开启定位!", this.alertCtrl);
     }.bind(this));
-    map.addControl(geolocationControl);
+    this.map.addControl(geolocationControl);
 
     let myIcon = new BMap.Icon("assets/images/map/position@2x.png", new BMap.Size(22, 32));
     let marker  = new BMap.Marker(point,{icon:myIcon});
-    map.addOverlay(marker);
+    this.map.addOverlay(marker);
 
 
     marker.addEventListener("click", function(e){
@@ -55,7 +56,7 @@ export class MarkerMapPagerPage {
       this.markerTapped();
     }.bind(this));
 
-    map.addEventListener("click", function(){
+    this.map.addEventListener("click", function(){
       this.deSelectPoi();
     }.bind(this));
 

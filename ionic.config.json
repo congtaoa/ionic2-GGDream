@@ -1,12 +1,11 @@
 {
   "name": "GGDream",
   "app_id": "",
-  "v2": true,
-  "typescript": true,
   "proxies": [
     {
       "path": "/openapi.baidu.com/oauth/2.0",
       "proxyUrl": "https://openapi.baidu.com/oauth/2.0"
     }
-  ]
+  ],
+  "type": "ionic-angular"
 }
